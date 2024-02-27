@@ -15,7 +15,7 @@ export default function Header() {
     setValue(location.pathname);
   }, []);
 
-  const handleChange = (event: any, newValue: string) => {
+  const handleChange = (_event: any, newValue: string) => {
     setValue(newValue);
     navigate(newValue);
   };
