@@ -8,3 +8,4 @@ export { default as SelectForm } from "./selectForm";
 export { default as Header } from "./header";
 export { default as ProgressLine } from "./progressLine";
 export { default as SnackBar } from "./snackbar";
+export { default as SceletonTable } from "./sceleton";

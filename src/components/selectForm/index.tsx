@@ -1,4 +1,5 @@
 import { UseFormRegister } from "react-hook-form";
+import styles from "./index.module.scss";
 
 const SelectForm = ({ register, options }: Props) => {
   const countries = options.map((e) => (
@@ -7,7 +8,11 @@ const SelectForm = ({ register, options }: Props) => {
     </option>
   ));
 
-  return <select {...register("targetCountry")}>{countries}</select>;
+  return (
+    <select className={styles.customSelect} {...register("targetCountry")}>
+      {countries}
+    </select>
+  );
 };
 
 export default SelectForm;

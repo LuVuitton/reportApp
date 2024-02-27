@@ -1,7 +1,8 @@
 import { FieldError } from "react-hook-form";
+import styles from "./index.module.scss";
 
 const InputError: React.FC<Props> = ({ errorMessage, error }) => {
-  return <>{error && <p>{errorMessage}</p>}</>;
+  return <>{error && <p className={styles.errorMessage}>{errorMessage}</p>}</>;
 };
 
 export default InputError;

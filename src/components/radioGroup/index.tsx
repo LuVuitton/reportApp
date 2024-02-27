@@ -1,6 +1,7 @@
 import { FieldError, UseFormRegister } from "react-hook-form";
-import { ReportRadioOption } from "../../data";
 import InputError from "../inputError";
+import { ReportRadioOption } from "../../data";
+import styles from "./index.module.scss";
 
 const RadioGroup = ({
   register,
@@ -13,7 +14,7 @@ const RadioGroup = ({
   const onClickHandler = (value: string) => callback(value);
 
   const mappedRadio = options.map((e) => (
-    <div key={e.id}>
+    <div key={e.id} className={styles.radio}>
       <label>
         <input
           type="radio"
@@ -27,12 +28,13 @@ const RadioGroup = ({
   ));
 
   return (
-    <>
+    <div className={styles.wrapper} >
       {mappedRadio}
+
       <div>
         <InputError error={error} errorMessage={errorMessage} />
       </div>
-    </>
+    </div>
   );
 };
 

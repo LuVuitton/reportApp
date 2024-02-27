@@ -1,6 +1,6 @@
 import { FieldError, UseFormRegister } from "react-hook-form";
-import { HTMLInputTypeAttribute } from "react";
-import InputError from "../inputError";
+import TextField from "@mui/material/TextField";
+import style from "./index.module.scss";
 
 const FormInput: React.FC<Props> = ({
   register,
@@ -8,22 +8,22 @@ const FormInput: React.FC<Props> = ({
   placeholder,
   error,
   errorMessage,
-  type,
   isTextarea = false,
-  rows,
 }) => {
-  const InputComponent = isTextarea ? "textarea" : "input";
-
   return (
-    <>
-      <InputComponent
-        type={type}
+    <div className={style.wrapper}>
+      <TextField
+        fullWidth
+        error={!!error}
+        id="outlined-basic"
+        label={placeholder}
+        multiline={isTextarea}
+        rows={isTextarea ? 4 : 1}
+        variant="outlined"
         {...register(registerName)}
-        placeholder={placeholder}
-        rows={rows}
+        helperText={errorMessage}
       />
-      <InputError error={error} errorMessage={errorMessage} />
-    </>
+    </div>
   );
 };
 
@@ -35,7 +35,5 @@ type Props = {
   placeholder: string;
   error: FieldError | undefined;
   errorMessage: string | undefined;
-  type?: HTMLInputTypeAttribute;
   isTextarea?: boolean;
-  rows?: number;
 };

@@ -1,14 +1,26 @@
-export const reportRadioOptions: ReportRadioOption[] = [
-  { id: 1, value: "social_engineering", label: "Social Engineering" },
-  { id: 2, value: "child_abuse", label: "Child Abuse" },
-  { id: 3, value: "spam", label: "SPAM" },
-  { id: 4, value: "illegal_goods", label: "Illegal Goods and Services" },
-  { id: 5, value: "malware", label: "Malicious Software" },
-  { id: 6, value: "ip_infrigement", label: "IP Infrigement (DMCA report)" },
-  { id: 7, value: "gambling", label: "Gambling, Casino" },
-  { id: 8, value: "hate_speech", label: "Hate Speech" },
-  { id: 9, value: "terrorism", label: "Terrorism" },
-  { id: 10, value: "i_dont_like_this", label: "I don't like this content" },
-];
+export const reportTypes: Record<string, { id: number; label: string }> = {
+  social_engineering: { id: 1, label: "Social Engineering" },
+  child_abuse: { id: 2, label: "Child Abuse" },
+  spam: { id: 3, label: "SPAM" },
+  illegal_goods: { id: 4, label: "Illegal Goods and Services" },
+  malware: { id: 5, label: "Malicious Software" },
+  ip_infrigement: { id: 6, label: "IP Infrigement (DMCA report)" },
+  gambling: { id: 7, label: "Gambling, Casino" },
+  hate_speech: { id: 8, label: "Hate Speech" },
+  terrorism: { id: 9, label: "Terrorism" },
+  i_dont_like_this: { id: 10, label: "I don't like this content" },
+};
 
-export type ReportRadioOption = { id: number; value: string; label: string };
+export const reportRadioOptions: ReportRadioOption[] = Object.keys(
+  reportTypes
+).map((key, index) => ({
+  id: index + 1,
+  value: key,
+  label: reportTypes[key].label,
+}));
+
+export type ReportRadioOption = {
+  id: number;
+  value: string;
+  label: string;
+};
