@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const API = "1https://profile.short.io/tmp";
+const API = "https://profile.short.io/tmp";
 const clientToken = localStorage.getItem("clientToken");
 
 export const reportApi = createApi({
