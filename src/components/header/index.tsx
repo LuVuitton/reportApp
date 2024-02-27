@@ -15,7 +15,7 @@ export default function Header() {
     setValue(location.pathname);
   }, []);
 
-  const handleChange = ({}, newValue: string) => {
+  const handleChange = (event: any, newValue: string) => {
     setValue(newValue);
     navigate(newValue);
   };
@@ -33,6 +33,3 @@ export default function Header() {
     </Box>
   );
 }
-
-
-
