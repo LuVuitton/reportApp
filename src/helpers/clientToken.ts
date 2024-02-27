@@ -1,4 +1,4 @@
-const generateClientToken = () => {
+export const generateClientToken = () => {
   let key = localStorage.getItem("clientToken");
 
   if (!key) {
@@ -15,5 +15,6 @@ const generateClientToken = () => {
   return key;
 };
 
+export const getClientToken = () => localStorage.getItem("clientToken");
 
-export default generateClientToken;
+

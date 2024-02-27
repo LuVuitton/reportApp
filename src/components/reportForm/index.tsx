@@ -8,23 +8,23 @@ import useCaptchaToken from "../../hooks/getCaptchaToken";
 import { FormInput, RadioGroup, CountriesSelect } from "../";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
+import { getClientToken } from "../../helpers/clientToken";
 
 export default function ReportForm() {
   const [radioValue, setRadioValue] = useState<string | null>(null);
   const captcha3Token = useCaptchaToken("abuse");
-  const clientToken = localStorage.getItem("clientToken");
+  // const clientToken = localStorage.getItem("clientToken");
+  const clientToken = getClientToken();
   const [addReport, { isLoading }] = useCreateReportMutation();
 
   const {
     register,
     handleSubmit,
     setValue,
-    watch,
     formState: { errors },
   } = useForm<CreateReportDTO>({
     resolver: yupResolver(reportFormSchema()),
   });
-  console.log(isLoading);
 
   useEffect(() => {
     clientToken && setValue("clientToken", clientToken);

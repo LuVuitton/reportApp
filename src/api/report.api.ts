@@ -1,8 +1,8 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { setShowAlert } from "../redux/slices/appSlice";
+import { getClientToken } from "../helpers/clientToken";
 
 const API = "https://profile.short.io/tmp";
-const clientToken = localStorage.getItem("clientToken");
 
 export const reportApi = createApi({
   reducerPath: "reportApi",
@@ -10,7 +10,7 @@ export const reportApi = createApi({
   tagTypes: ["Report"],
   endpoints: (builder) => ({
     getReportList: builder.query<ReportItem[], void>({
-      query: () => `/abuse-reports?clientToken=${clientToken}`,
+      query: () => `/abuse-reports?clientToken=${getClientToken()}`,
       providesTags: ["Report"],
     }),
     createReport: builder.mutation<void, CreateReportDTO>({
