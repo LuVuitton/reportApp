@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { setShowAlert } from "../redux/slices/appSlice";
 
 const API = "https://profile.short.io/tmp";
 const clientToken = localStorage.getItem("clientToken");
@@ -6,9 +7,11 @@ const clientToken = localStorage.getItem("clientToken");
 export const reportApi = createApi({
   reducerPath: "reportApi",
   baseQuery: fetchBaseQuery({ baseUrl: API }),
+  tagTypes: ["Report"],
   endpoints: (builder) => ({
     getReportList: builder.query<ReportItem[], void>({
       query: () => `/abuse-reports?clientToken=${clientToken}`,
+      providesTags: ["Report"],
     }),
     createReport: builder.mutation<void, CreateReportDTO>({
       query: (requestData) => ({
@@ -16,12 +19,26 @@ export const reportApi = createApi({
         method: "POST",
         body: requestData,
       }),
+      invalidatesTags: ["Report"],
+      async onQueryStarted({}, { dispatch, queryFulfilled }) {
+        try {
+          await queryFulfilled;
+          dispatch(
+            setShowAlert({
+              isShow: true,
+              message: "successfully reported",
+              status: "success",
+            })
+          );
+        } catch (e) {
+          console.warn(e);
+        }
+      },
     }),
   }),
 });
 
-export const { useGetReportListQuery, useCreateReportMutation } =
-  reportApi;
+export const { useGetReportListQuery, useCreateReportMutation } = reportApi;
 
 export type CreateReportDTO = {
   // clientToken -  it is generated automatically on first page load and saved in localStorage (should not be visible to user)

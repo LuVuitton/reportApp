@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import { Header } from "../components";
 import { BrowserRouter } from "react-router-dom";
 
-describe("Header component", () => {
+describe("Header demo", () => {
   test("renders navigation links correctly", () => {
     render(
       <BrowserRouter>
