@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Header, ProgressLine, SnackBar } from "./components";
 import { ReportForm, ReportList } from "./components";
-import { generateClientToken } from "./helpers/clientToken";
+import { generateClientToken } from "./helpers/getClientToken";
 
 export default function App() {
   generateClientToken();

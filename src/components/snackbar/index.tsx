@@ -10,10 +10,7 @@ export default function SnackBar() {
   const [message, setMessage] = useState("");
   const isOpen = useAppSelector((state) => state.app.showAlert);
 
-  const handleClose = (
-    event?: React.SyntheticEvent | Event,
-    reason?: string
-  ) => {
+  const handleClose = ({}, reason?: string) => {
     if (reason === "clickaway") {
       return;
     }

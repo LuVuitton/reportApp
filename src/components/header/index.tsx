@@ -15,7 +15,7 @@ export default function Header() {
     setValue(location.pathname);
   }, []);
 
-  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+  const handleChange = ({}, newValue: string) => {
     setValue(newValue);
     navigate(newValue);
   };

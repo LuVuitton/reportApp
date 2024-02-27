@@ -8,7 +8,7 @@ import useCaptchaToken from "../../hooks/getCaptchaToken";
 import { FormInput, RadioGroup, CountriesSelect } from "../";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
-import { getClientToken } from "../../helpers/clientToken";
+import { getClientToken } from "../../helpers/getClientToken";
 
 export default function ReportForm() {
   const [radioValue, setRadioValue] = useState<string | null>(null);

@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { setShowAlert } from "../redux/slices/appSlice";
-import { getClientToken } from "../helpers/clientToken";
+import { getClientToken } from "../helpers/getClientToken";
 
 const API = "https://profile.short.io/tmp";
 
