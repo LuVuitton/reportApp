@@ -31,7 +31,7 @@ export const reportApi = createApi({
             })
           );
         } catch (e) {
-          console.warn(e);
+          console.warn(e); //there is alert in moddlewere
         }
       },
     }),
@@ -41,7 +41,6 @@ export const reportApi = createApi({
 export const { useGetReportListQuery, useCreateReportMutation } = reportApi;
 
 export type CreateReportDTO = {
-  // clientToken -  it is generated automatically on first page load and saved in localStorage (should not be visible to user)
   clientToken: string;
   abusedURL: string;
   email: string;
@@ -49,7 +48,6 @@ export type CreateReportDTO = {
   targetCountry?: string | null;
   spamProof?: string | null;
   captchaToken: string;
-  //captcha2Token - (optional task) empty, generate it only if server responds with 403 error (how to generate: https://developers.google.com/recaptcha/docs/display)
 };
 
 export type ReportItem = {

@@ -23,14 +23,3 @@ export const formatIsoDateToDMHM = (
       return `${day} ${month} ${year}`.toLowerCase();
   }
 };
-
-// export const getIsoDate = () => {
-//   const currentDate = new Date();
-//   return currentDate.toISOString();
-// };
-
-// export const minToHours = (minutes: number) => {
-//   const hours = Math.floor(minutes / 60);
-//   const remainingMinutes = minutes % 60;
-//   return `${hours} h ${remainingMinutes} min`;
-// };

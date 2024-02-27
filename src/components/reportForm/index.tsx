@@ -13,7 +13,6 @@ import { getClientToken } from "../../helpers/clientToken";
 export default function ReportForm() {
   const [radioValue, setRadioValue] = useState<string | null>(null);
   const captcha3Token = useCaptchaToken("abuse");
-  // const clientToken = localStorage.getItem("clientToken");
   const clientToken = getClientToken();
   const [addReport, { isLoading }] = useCreateReportMutation();
 
